@@ -1,3 +1,10 @@
+ 
+<?php 
+
+    $conexion = mysqli_connect('localhost', 'root', '', 'bd_futbol1');
+
+ ?>
+
  <!doctype html>
 <html lang="en">
 
@@ -37,7 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="categorias.php">Categorias</a>
@@ -58,62 +65,60 @@
     <section id="hero">
         <duv class="container">
             <div class="content-center">
-                <h1 class="mt-5">Website Design and Development</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam mollitia
-                    aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.</p>
-                <a href="#contact" class="btn btn-secondary mt-4">¡INGRESA YA! <img src="assets/images/arrow-right.svg" class="ml-2"></a>
-             	<a href="login.php" class="btn btn-secondary mt-4">¡INGRESA YA! <img src="assets/images/arrow-right.svg" class="ml-2"></a>
-             	<a href="login.php" class="btn btn-secondary mt-4">¡INGRESA YA! <img src="assets/images/arrow-right.svg" class="ml-2"></a>                      
+                
+                <a href="#SUB-12" class="btn btn-secondary mt-4">SUB-12 <img src="assets/images/arrow-right.svg" class="ml-2"></a>
+             	<a href="#" class="btn btn-secondary mt-4">SUB-15 <img src="assets/images/arrow-right.svg" class="ml-2"></a>
+             	<a href="login.php" class="btn btn-secondary mt-4">SUB-20 <img src="assets/images/arrow-right.svg" class="ml-2"></a>                      
                     
             </div>
         </duv>
     </section>
 
-    <section id="contact">
+        <section id="SUB-12">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 mt-4">
-                    <h3>Ready to accelerate your project? <b>just let us know.</b></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea consequuntur, odit veniam
-                        mollitia aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum.
-                        contact@smartagency.com</p>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="" placeholder="Last name">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="" placeholder="Company name">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="" placeholder="Phone number (optional)">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="" class="btn btn-primary full-width">Contact sales</a>
-                        </div>
-                    </div>
+            <div class="row content-center">
+         
+
+                <table class="table table-hover table-condensed table-borderer">
+                    
+                    <tr>
+                        
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>APELLIDO</td>
+                        <td>STATUS</td>
+
+                    </tr>
+
+                    <?php 
+
+                        $sql = "SELECT * FROM categorias";
+                        $result = mysqli_query($conexion, $sql);
+
+                        while($mostrar = mysqli_fetch_array($result) ){
+
+
+
+                     ?>
+
+                    <tr>
+                        
+                        <td><?php echo $mostrar['IdCategorias']?></td>
+                        <td><?php echo $mostrar['Nombre']?></td>
+                        <td><?php echo $mostrar['Apellido']?></td>
+                        <td><?php echo $mostrar['Status']?></td>
+                    </tr>
+
+                    <?php 
+                        }
+                     ?>
+
+                </table>           
+        
+                    
                 </div>
             </div>
-        </div>
     </section>
-
 
     <footer class="bgDark">
         <div class="container">

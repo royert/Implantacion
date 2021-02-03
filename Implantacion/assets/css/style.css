@@ -22,6 +22,17 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
   margin: 20px auto;
 }
 
+div{
+
+  outline: none;
+  display: block;
+  width: 300px;
+  
+ 
+  margin: 20px auto;
+
+}
+
 input[type="submit"] {
   padding: 10px;
   color: #fff;

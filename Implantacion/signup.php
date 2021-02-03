@@ -29,21 +29,23 @@
   </head>
   <body>
 
-    <?php require 'partials/header.php' ?>
-
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
 
     <img src="assets/images/logo1.png" alt="Logo" width="400" height="150">
 
-    <h1>SignUp</h1>
-    <span>or <a href="login.php">Login</a></span>
 
     <form action="signup.php" method="POST">
-      <input name="user" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
-      <input name="email" type="text" placeholder="Confirm Password">
+      <input name="user" type="text" placeholder="Ingrese su Nombres ">
+      <input name="password" type="password" placeholder="Ingrese su Apellidos">
+      <input name="email" type="text" placeholder="Ingrese su Direccion">
+      <input name="user" type="text" placeholder="Ingrese su Telefono">
+      <div>
+      <select name="Status">
+         <option value="1">Jugador</option> 
+         <option value="2">Entrenador</option> 
+         <option value="3">Representante</option>
+         <option value="10">Administrador</option>
+      </select>
+      </div>
       <input type="submit" value="Submit">
     </form>
 
