@@ -1,4 +1,3 @@
- 
 <?php 
 
     $conexion = mysqli_connect('localhost', 'root', '', 'bd_futbol');
@@ -9,14 +8,11 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Diego Velázquez">
     <meta name="description" content="Smart Agency is a one page responsive Bootstrap 4 template. This is a free open source theme, you can use our theme for any purpose, even commercially. Create amazing websites with this easy to customize template.">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Style -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -61,92 +57,79 @@
         </div>
     </nav>
 
+<section id="hero", id="hero2", id="hero3">
 
-    <section id="hero">
         <duv class="container">
             <div class="content-center">
                 
-                <a href="#SUB-12" class="btn btn-secondary mt-4">SUB-12 <img src="assets/images/arrow-right.svg" class="ml-2"></a>
-             	<a href="#" class="btn btn-secondary mt-4">SUB-15 <img src="assets/images/arrow-right.svg" class="ml-2"></a>
-             	<a href="login.php" class="btn btn-secondary mt-4">SUB-20 <img src="assets/images/arrow-right.svg" class="ml-2"></a>                      
+                <a href="#SUB-12" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary"> </button> SUB-12 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>
+             	<a href="#SUB-15" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary"> </button> SUB-15 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>
+             	<a href="#SUB-20" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary"> </button> SUB-20 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>                      
                     
             </div>
         </duv>
     </section>
 
         <section id="SUB-12">
+        	<section id="SUB-15">
+        		<section id="SUB-20">
         <div class="container">
             <div class="row content-center">
-         
 
-                <table class="table table-hover table-condensed table-borderer">
+            	<table class="table table-dark" >
                     
                     <tr>
                         
                         <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>APELLIDO</td>
-                        <td>STATUS</td>
-
+                        <td>FECHA</td>
+                        <td>NUMERO DE GOLES</td>
+                        <td>NUMERO DE ASISTENCIAS</td>
+                        <td>NUMERO DE PASES</td>
+                        <td>TARJETAS AMARILLAS</td>
+                        <td>TARJETAS ROJAS</td>
+                        <td>HABILIDAD</td>
+                        <td>RESISTENCIA</td>
+                        <td>FUERZA</td>
+                        <td>VELOCIDAD</td>
+                        
                     </tr>
+
+
 
                     <?php 
 
-                        $sql = "SELECT * FROM categorias";
+                        $sql = "SELECT * FROM estadisticas";
                         $result = mysqli_query($conexion, $sql);
 
                         while($mostrar = mysqli_fetch_array($result) ){
-
-
 
                      ?>
 
                     <tr>
                         
-                        <td><?php echo $mostrar['IdCategorias']?></td>
-                        <td><?php echo $mostrar['Nombre']?></td>
-                        <td><?php echo $mostrar['Apellido']?></td>
-                        <td><?php echo $mostrar['Status']?></td>
+                        <td><?php echo $mostrar['IdEstadistica']?></td>
+                        <td><?php echo $mostrar['Fecha']?></td>
+                        <td><?php echo $mostrar['NumeroGoles']?></td>
+                        <td><?php echo $mostrar['NumeroAsistencia']?></td>
+                        <td><?php echo $mostrar['NumeroPases']?></td>
+                        <td><?php echo $mostrar['TarjetasA']?></td>
+                        <td><?php echo $mostrar['TarjetasR']?></td>
+                        <td><?php echo $mostrar['Habilidad']?></td>
+                        <td><?php echo $mostrar['Resistencia']?></td>
+                        <td><?php echo $mostrar['Fuerza']?></td>
+                        <td><?php echo $mostrar['Velocidad']?></td>
                     </tr>
 
                     <?php 
                         }
                      ?>
 
-                </table>           
-        
-                    
-                </div>
+                </table>     
+                 </div>
             </div>
-    </section>
+    </section>  
 
-    <footer class="bgDark">
-        <div class="container">
-            <img src="assets/images/logo-light.svg" class="logo-brand" alt="logo">
-            <ul class="list-inline">
-                <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">Portfolio</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">About us</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">Pricing</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">Contact</a></li>
-            </ul>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#"><img src="assets/images/instagram.svg" class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="assets/images/twitter.svg" class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="assets/images/youtube.svg" class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="assets/images/dribbble.svg" class="img-fluid"></a></li>
-                <li class="list-inline-item"><a href="#"><img src="assets/images/facebook.svg" class="img-fluid"></a></li>
-            </ul>
-            <small>©2020 All Rights Reserved. Created by <a href="https://themesbootstrap.com.mx/" class="font-weight-bold" target="_blank"
-                    rel="noopener">Themes Bootstrap</a></small>
-        </div>
-    </footer>
+    </body>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+</html>   
+         
