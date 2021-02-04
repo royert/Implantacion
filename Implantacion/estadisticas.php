@@ -46,10 +46,10 @@
                         <a class="nav-link" href="categorias.php">Categorias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#team">Ligas</a>
+                        <a class="nav-link" href="ligas.php">Ligas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Estadisticas</a>
+                        <a class="nav-link" href="estadisticas.php">Estadisticas</a>
                     </li>
                 </ul>
             </div>
@@ -62,9 +62,9 @@
         <duv class="container">
             <div class="content-center">
                 
-                <a href="#SUB-12" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary"> </button> SUB-12 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>
-             	<a href="#SUB-15" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary"> </button> SUB-15 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>
-             	<a href="#SUB-20" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary"> </button> SUB-20 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>                      
+                <a href="#SUB-12" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary mt-4"> </button> SUB-12 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>
+             	<a href="#SUB-15" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary mt-4"> </button> SUB-15 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>
+             	<a href="#SUB-20" style="color:#FF0000" <button type="button" class="btn btn-outline-secondary mt-4"> </button> SUB-20 <img src="assets/images/arrow-right.svg" class="ml-2"> </a>                      
                     
             </div>
         </duv>
@@ -76,7 +76,8 @@
         <div class="container">
             <div class="row content-center">
 
-            	<table class="table table-dark" >
+            	<table class="table table-dark">
+
                     
                     <tr>
                         
@@ -129,7 +130,32 @@
             </div>
     </section>  
 
-    </body>
+   <footer class="bgDark">
+        <div class="container">
+            <img src="assets/images/logo-light.svg" class="logo-brand" alt="logo">
+            <ul class="list-inline">
+                <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Portfolio</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">About us</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Pricing</a></li>
+                <li class="list-inline-item footer-menu"><a href="#">Contact</a></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#"><img src="assets/images/instagram.svg" class="img-fluid"></a></li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/twitter.svg" class="img-fluid"></a></li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/youtube.svg" class="img-fluid"></a></li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/dribbble.svg" class="img-fluid"></a></li>
+                <li class="list-inline-item"><a href="#"><img src="assets/images/facebook.svg" class="img-fluid"></a></li>
+            </ul>
+            <small>©2020 All Rights Reserved. Created by <a href="https://themesbootstrap.com.mx/" class="font-weight-bold" target="_blank"
+                    rel="noopener">Themes Bootstrap</a></small>
+        </div>
+    </footer>
 
-</html>   
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
          

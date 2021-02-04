@@ -1,7 +1,7 @@
 
 <?php 
 
-    $conexion = mysqli_connect('localhost', 'root', '', 'bd_futbol1');
+    $conexion = mysqli_connect('localhost', 'root', '', 'bd_futbol');
 
 
  ?>
@@ -54,7 +54,7 @@
                         <a class="nav-link" href="ligas.php">Ligas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Estadisticas</a>
+                        <a class="nav-link" href="estadisticas.php">Estadisticas</a>
                     </li>
                 </ul>
             </div>
