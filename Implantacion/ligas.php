@@ -1,7 +1,8 @@
- 
+
 <?php 
 
     $conexion = mysqli_connect('localhost', 'root', '', 'bd_futbol1');
+
 
  ?>
 
@@ -66,15 +67,17 @@
         <duv class="container">
             <div class="content-center">
                 
-                <a href="#SUB-12" class="btn btn-secondary mt-4">SUB-12 <img src="assets/images/arrow-right.svg" class="ml-2"></a>
-             	<a href="#" class="btn btn-secondary mt-4">SUB-15 <img src="assets/images/arrow-right.svg" class="ml-2"></a>
-             	<a href="login.php" class="btn btn-secondary mt-4">SUB-20 <img src="assets/images/arrow-right.svg" class="ml-2"></a>                      
+                <a href="#Inter-Copa" class="btn btn-secondary mt-4">Inter-Copa<img src="assets/images/arrow-right.svg" class="ml-2"></a>
+                <a href="#Copa-Plata" class="btn btn-secondary mt-4">Copa-Plata<img src="assets/images/arrow-right.svg" class="ml-2"></a>
+                <a href="login.php" class="btn btn-secondary mt-4">Copa-Oro<img src="assets/images/arrow-right.svg" class="ml-2"></a>                      
                     
             </div>
         </duv>
     </section>
 
-        <section id="SUB-12">
+
+
+        <section id="Inter-Copa">
         <div class="container">
             <div class="row content-center">
          
@@ -83,16 +86,16 @@
                     
                     <tr>
                         
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>APELLIDO</td>
+                        <td>ID LIGAS</td>
+                        <td>NUMERO DE EQUIPO</td>
                         <td>STATUS</td>
+                        <td>ID CATEGORIAS</td>
 
                     </tr>
 
                     <?php 
 
-                        $sql = "SELECT * FROM categorias";
+                        $sql = "SELECT * FROM ligas";
                         $result = mysqli_query($conexion, $sql);
 
                         while($mostrar = mysqli_fetch_array($result) ){
@@ -103,10 +106,10 @@
 
                     <tr>
                         
-                        <td><?php echo $mostrar['IdCategorias']?></td>
-                        <td><?php echo $mostrar['Nombre']?></td>
-                        <td><?php echo $mostrar['Apellido']?></td>
+                        <td><?php echo $mostrar['IdLigas']?></td>
+                        <td><?php echo $mostrar['NumeroEquipos']?></td>
                         <td><?php echo $mostrar['Status']?></td>
+                        <td><?php echo $mostrar['IdCategorias']?></td>
                     </tr>
 
                     <?php 
@@ -119,6 +122,11 @@
                 </div>
             </div>
     </section>
+
+
+
+
+
 
     <footer class="bgDark">
         <div class="container">
