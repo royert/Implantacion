@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2021 a las 18:15:51
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 04-02-2021 a las 07:16:16
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,8 +45,8 @@ CREATE TABLE `admin. sistema` (
 CREATE TABLE `categorias` (
   `IdCategorias` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
-  `Status` varchar(255) NOT NULL,
-  `IdUsuario` int(11) NOT NULL
+  `Apellido` varchar(255) NOT NULL,
+  `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -56,7 +56,7 @@ CREATE TABLE `categorias` (
 --
 
 CREATE TABLE `estadisticas` (
-  `IdEstadisticas` int(11) NOT NULL,
+  `IdEstadistica` int(11) NOT NULL,
   `Fecha` date NOT NULL,
   `NumeroGoles` int(11) NOT NULL,
   `NumeroAsistencia` int(11) NOT NULL,
@@ -69,6 +69,13 @@ CREATE TABLE `estadisticas` (
   `Velocidad` int(11) NOT NULL,
   `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estadisticas`
+--
+
+INSERT INTO `estadisticas` (`IdEstadistica`, `Fecha`, `NumeroGoles`, `NumeroAsistencia`, `NumeroPases`, `TarjetasA`, `TarjetasR`, `Habilidad`, `Resistencia`, `Fuerza`, `Velocidad`, `Status`) VALUES
+(3010, '1999-10-30', 5, 2, 10, 0, 2, 30, 20, 20, 30, 'Jugador');
 
 -- --------------------------------------------------------
 
@@ -95,9 +102,7 @@ CREATE TABLE `juegos` (
   `Sanciones` int(11) NOT NULL,
   `TarjetasA` int(11) NOT NULL,
   `Resultado` int(11) NOT NULL,
-  `Status` varchar(255) NOT NULL,
-  `IdCategorias` int(11) NOT NULL,
-  `IdLigas` int(11) NOT NULL
+  `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -109,8 +114,7 @@ CREATE TABLE `juegos` (
 CREATE TABLE `ligas` (
   `IdLigas` int(11) NOT NULL,
   `NumeroEquipos` int(11) NOT NULL,
-  `Status` varchar(255) NOT NULL,
-  `IdCategorias` int(11) NOT NULL
+  `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -121,8 +125,7 @@ CREATE TABLE `ligas` (
 
 CREATE TABLE `stats` (
   `IdStats` int(11) NOT NULL,
-  `Status` varchar(255) NOT NULL,
-  `IdUsuario` int(11) NOT NULL
+  `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -142,10 +145,7 @@ CREATE TABLE `usuario` (
   `statusJ` varchar(255) NOT NULL,
   `statusE` varchar(255) NOT NULL,
   `statusA` varchar(255) NOT NULL,
-  `statusP` varchar(255) NOT NULL,
-  `IdAdmin` int(11) NOT NULL,
-  `IdEstadisticas` int(11) NOT NULL,
-  `IdSocioEconomico` int(11) NOT NULL
+  `statusP` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -162,14 +162,13 @@ ALTER TABLE `admin. sistema`
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`IdCategorias`),
-  ADD KEY `categorias-usuario` (`IdUsuario`);
+  ADD PRIMARY KEY (`IdCategorias`);
 
 --
 -- Indices de la tabla `estadisticas`
 --
 ALTER TABLE `estadisticas`
-  ADD PRIMARY KEY (`IdEstadisticas`);
+  ADD PRIMARY KEY (`IdEstadistica`);
 
 --
 -- Indices de la tabla `estd. socio economico`
@@ -181,32 +180,25 @@ ALTER TABLE `estd. socio economico`
 -- Indices de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  ADD PRIMARY KEY (`IdJuegos`),
-  ADD KEY `juegos-categorias` (`IdCategorias`),
-  ADD KEY `juegos-ligas` (`IdLigas`);
+  ADD PRIMARY KEY (`IdJuegos`);
 
 --
 -- Indices de la tabla `ligas`
 --
 ALTER TABLE `ligas`
-  ADD PRIMARY KEY (`IdLigas`),
-  ADD KEY `ligas-categorias` (`IdCategorias`);
+  ADD PRIMARY KEY (`IdLigas`);
 
 --
 -- Indices de la tabla `stats`
 --
 ALTER TABLE `stats`
-  ADD PRIMARY KEY (`IdStats`),
-  ADD KEY `stats-usuario` (`IdUsuario`);
+  ADD PRIMARY KEY (`IdStats`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`IdUsuario`),
-  ADD KEY `usuario-admin` (`IdAdmin`),
-  ADD KEY `usuario-estadisticas` (`IdEstadisticas`),
-  ADD KEY `usuario-socioeconomico` (`IdSocioEconomico`);
+  ADD PRIMARY KEY (`IdUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -228,7 +220,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `estadisticas`
 --
 ALTER TABLE `estadisticas`
-  MODIFY `IdEstadisticas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdEstadistica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3011;
 
 --
 -- AUTO_INCREMENT de la tabla `estd. socio economico`
@@ -259,43 +251,6 @@ ALTER TABLE `stats`
 --
 ALTER TABLE `usuario`
   MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `categorias`
---
-ALTER TABLE `categorias`
-  ADD CONSTRAINT `categorias-usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `juegos`
---
-ALTER TABLE `juegos`
-  ADD CONSTRAINT `juegos-categorias` FOREIGN KEY (`IdCategorias`) REFERENCES `categorias` (`IdCategorias`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `juegos-ligas` FOREIGN KEY (`IdLigas`) REFERENCES `ligas` (`IdLigas`);
-
---
--- Filtros para la tabla `ligas`
---
-ALTER TABLE `ligas`
-  ADD CONSTRAINT `ligas-categorias` FOREIGN KEY (`IdCategorias`) REFERENCES `categorias` (`IdCategorias`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `stats`
---
-ALTER TABLE `stats`
-  ADD CONSTRAINT `stats-usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario-admin` FOREIGN KEY (`IdAdmin`) REFERENCES `admin. sistema` (`IdAdmin`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario-estadisticas` FOREIGN KEY (`IdEstadisticas`) REFERENCES `estadisticas` (`IdEstadisticas`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario-socioeconomico` FOREIGN KEY (`IdSocioEconomico`) REFERENCES `estd. socio economico` (`IdSocioEconomico`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
